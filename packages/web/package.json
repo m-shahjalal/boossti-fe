@@ -131,5 +131,11 @@
     "storybook-addon-apollo-client": "^4.0.11",
     "typescript": "4.6.3",
     "webpack": "^5.71.0"
+  },
+  "resolutions": {
+    "react": "18.0.0",
+    "react-dom": "18.0.0",
+    "@types/react": "17.0.43",
+    "@types/react-dom": "17.0.14"
   }
 }
