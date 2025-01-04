@@ -4,16 +4,22 @@ applications:
       phases:
         preBuild:
           commands:
-            - yarn install
+            # Install dependencies for both packages
+            - cd packages/shared
+            - npm ci
+            - cd ../web
+            - npm ci
+            # Ensure aws-exports.js is properly linked
+            - ln -sf ../shared/aws-exports.js src/aws-exports.js
         build:
           commands:
-            - yarn workspace @frontend/web run build
+            - npm run build
       artifacts:
-        baseDirectory: packages/web/.next
+        baseDirectory: .next
         files:
           - '**/*'
       cache:
         paths:
           - node_modules/**/*
-          - packages/web/node_modules/**/*
           - packages/shared/node_modules/**/*
+    appRoot: packages/web
