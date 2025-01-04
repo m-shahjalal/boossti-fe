@@ -8,10 +8,22 @@ applications:
             # Set Node version to 18
             - nvm use 18
             - node -v
-            # Install root dependencies first
-            - npm ci
-            # Install shared package dependencies
+            # Create aws-exports.js in shared package
             - cd packages/shared
+            - |
+              cat << EOF > src/aws-exports.js
+              const awsmobile = {
+                "aws_project_region": "us-west-1",
+                "aws_cognito_identity_pool_id": "us-west-1:your-identity-pool-id",
+                "aws_cognito_region": "us-west-1",
+                "aws_user_pools_id": "us-west-1_your-user-pool-id",
+                "aws_user_pools_web_client_id": "your-client-id",
+                "oauth": {},
+                "aws_user_files_s3_bucket": "boossti-bucket",
+                "aws_user_files_s3_bucket_region": "us-west-1"
+              };
+              export default awsmobile;
+              EOF
             - npm ci
             # Install web package dependencies
             - cd ../web
