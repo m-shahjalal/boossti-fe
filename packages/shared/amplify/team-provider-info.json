@@ -17,5 +17,26 @@
         "true": {}
       }
     }
+  },
+  "develop": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-boossti-develop-d5ca3-authRole",
+      "UnauthRoleArn": "arn:aws:iam::533267073907:role/amplify-boossti-develop-d5ca3-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::533267073907:role/amplify-boossti-develop-d5ca3-authRole",
+      "Region": "us-west-1",
+      "DeploymentBucketName": "amplify-boossti-develop-d5ca3-deployment",
+      "UnauthRoleName": "amplify-boossti-develop-d5ca3-unauthRole",
+      "StackName": "amplify-boossti-develop-d5ca3",
+      "StackId": "arn:aws:cloudformation:us-west-1:533267073907:stack/amplify-boossti-develop-d5ca3/673fbdf0-ca80-11ef-942d-021a8fe05509",
+      "AmplifyAppId": "d21zw7ha6ivzpw"
+    },
+    "categories": {
+      "auth": {
+        "boossti": {}
+      },
+      "storage": {
+        "boosstistorage": {}
+      }
+    }
   }
 }

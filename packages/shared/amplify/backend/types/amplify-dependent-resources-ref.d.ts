@@ -1,21 +1,21 @@
 export type AmplifyDependentResourcesAttributes = {
-    "auth": {
-        "boossti": {
-            "IdentityPoolId": "string",
-            "IdentityPoolName": "string",
-            "HostedUIDomain": "string",
-            "OAuthMetadata": "string",
-            "UserPoolId": "string",
-            "UserPoolArn": "string",
-            "UserPoolName": "string",
-            "AppClientIDWeb": "string",
-            "AppClientID": "string"
-        }
-    },
-    "storage": {
-        "boosstistorage": {
-            "BucketName": "string",
-            "Region": "string"
-        }
+  "auth": {
+    "boossti": {
+      "AppClientID": "string",
+      "AppClientIDWeb": "string",
+      "HostedUIDomain": "string",
+      "IdentityPoolId": "string",
+      "IdentityPoolName": "string",
+      "OAuthMetadata": "string",
+      "UserPoolArn": "string",
+      "UserPoolId": "string",
+      "UserPoolName": "string"
     }
+  },
+  "storage": {
+    "boosstistorage": {
+      "BucketName": "string",
+      "Region": "string"
+    }
+  }
 }
