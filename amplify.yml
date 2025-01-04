@@ -4,13 +4,14 @@ applications:
       phases:
         preBuild:
           commands:
-            # Install dependencies for both packages
+            - npm install -g npm@latest
             - cd packages/shared
             - npm ci
             - cd ../web
             - npm ci
-            # Ensure aws-exports.js is properly linked
-            - ln -sf ../shared/aws-exports.js src/aws-exports.js
+            - npm install aws-amplify @aws-amplify/ui-react
+            # Generate aws-exports.js if it doesn't exist
+            - amplify pull --appId ${AMPLIFY_APP_ID} --envName ${AMPLIFY_ENV} --yes
         build:
           commands:
             - npm run build
