@@ -4,7 +4,9 @@ applications:
       phases:
         preBuild:
           commands:
-            - npm install -g npm@latest
+            # Set Node version to 18
+            - nvm use 18
+            - node -v
             - cd packages/shared
             - npm ci
             - cd ../web
