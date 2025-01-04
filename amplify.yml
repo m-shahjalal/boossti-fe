@@ -16,14 +16,14 @@ applications:
             # Create aws-exports.js using environment variables
             - |
               echo "const awsmobile = {
-                aws_project_region: '${AWS_REGION}',
-                aws_cognito_identity_pool_id: '${COGNITO_IDENTITY_POOL_ID}',
-                aws_cognito_region: '${AWS_REGION}',
-                aws_user_pools_id: '${COGNITO_USER_POOL_ID}',
-                aws_user_pools_web_client_id: '${COGNITO_WEB_CLIENT_ID}',
+                aws_project_region: 'us-west-1',
+                aws_cognito_identity_pool_id: 'us-west-1:297944203549',
+                aws_cognito_region: 'us-west-1',
+                aws_user_pools_id: 'us-west-1_boossti',
+                aws_user_pools_web_client_id: 'boossta0a36868',
                 oauth: {},
-                aws_user_files_s3_bucket: '${S3_BUCKET}',
-                aws_user_files_s3_bucket_region: '${AWS_REGION}'
+                aws_user_files_s3_bucket: 'boossti-bucket',
+                aws_user_files_s3_bucket_region: 'us-west-1'
               }; export default awsmobile;" > src/aws-exports.js
         build:
           commands:
@@ -37,4 +37,3 @@ applications:
           - node_modules/**/*
           - packages/shared/node_modules/**/*
           - packages/web/node_modules/**/*
-    buildSpec: amplify.yml
