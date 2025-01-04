@@ -1,28 +1,29 @@
 version: 1
-frontend:
-  phases:
-    preBuild:
-      commands:
-        # Set Node version to 18
-        - nvm use 18
-        - node -v
-        # Install dependencies
-        - cd packages/shared
-        - npm ci
-        - cd ../web
-        - npm ci
-        - npm install aws-amplify @aws-amplify/ui-react
-        # Copy aws-exports from shared to web
-        - cp ../shared/src/aws-exports.js src/
-    build:
-      commands:
-        - npm run build
-  artifacts:
-    baseDirectory: .next
-    files:
-      - '**/*'
-  cache:
-    paths:
-      - node_modules/**/*
-      - packages/shared/node_modules/**/*
-  appRoot: packages/web
+applications:
+  - frontend:
+      phases:
+        preBuild:
+          commands:
+            # Set Node version to 18
+            - nvm use 18
+            - node -v
+            # Install dependencies
+            - cd packages/shared
+            - npm ci
+            - cd ../web
+            - npm ci
+            - npm install aws-amplify @aws-amplify/ui-react
+            # Copy aws-exports from shared to web
+            - cp ../shared/src/aws-exports.js src/
+        build:
+          commands:
+            - npm run build
+      artifacts:
+        baseDirectory: .next
+        files:
+          - '**/*'
+      cache:
+        paths:
+          - node_modules/**/*
+          - packages/shared/node_modules/**/*
+      appRoot: packages/web
