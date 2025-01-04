@@ -8,16 +8,21 @@ applications:
             # Set Node version to 18
             - nvm use 18
             - node -v
-            # Install dependencies
+            # Install root dependencies first
+            - npm ci
+            # Install shared package dependencies
             - cd packages/shared
             - npm ci
+            # Install web package dependencies
             - cd ../web
             - npm ci
-            - npm install aws-amplify @aws-amplify/ui-react
             # Copy aws-exports from shared to web
-            - cp ../shared/src/aws-exports.js src/
+            - cp -f ../shared/src/aws-exports.js src/
+            # Verify aws-exports exists
+            - ls -la src/aws-exports.js
         build:
           commands:
+            - echo "Building web package..."
             - npm run build
       artifacts:
         baseDirectory: .next
@@ -27,3 +32,5 @@ applications:
         paths:
           - node_modules/**/*
           - packages/shared/node_modules/**/*
+          - packages/web/node_modules/**/*
+    buildSpec: amplify.yml
