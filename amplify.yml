@@ -8,33 +8,25 @@ applications:
             # Set Node version to 18
             - nvm use 18
             - node -v
-            # Create aws-exports.js in shared package
+            # Install dependencies
             - cd packages/shared
-            - |
-              cat << EOF > src/aws-exports.js
-              const awsmobile = {
-                "aws_project_region": "us-west-1",
-                "aws_cognito_identity_pool_id": "us-west-1:your-identity-pool-id",
-                "aws_cognito_region": "us-west-1",
-                "aws_user_pools_id": "us-west-1_your-user-pool-id",
-                "aws_user_pools_web_client_id": "your-client-id",
-                "oauth": {},
-                "aws_user_files_s3_bucket": "boossti-bucket",
-                "aws_user_files_s3_bucket_region": "us-west-1"
-              };
-              export default awsmobile;
-              EOF
             - npm ci
-            # Install web package dependencies
             - cd ../web
             - npm ci
-            # Copy aws-exports from shared to web
-            - cp -f ../shared/src/aws-exports.js src/
-            # Verify aws-exports exists
-            - ls -la src/aws-exports.js
+            # Create aws-exports.js using environment variables
+            - |
+              echo "const awsmobile = {
+                aws_project_region: '${AWS_REGION}',
+                aws_cognito_identity_pool_id: '${COGNITO_IDENTITY_POOL_ID}',
+                aws_cognito_region: '${AWS_REGION}',
+                aws_user_pools_id: '${COGNITO_USER_POOL_ID}',
+                aws_user_pools_web_client_id: '${COGNITO_WEB_CLIENT_ID}',
+                oauth: {},
+                aws_user_files_s3_bucket: '${S3_BUCKET}',
+                aws_user_files_s3_bucket_region: '${AWS_REGION}'
+              }; export default awsmobile;" > src/aws-exports.js
         build:
           commands:
-            - echo "Building web package..."
             - npm run build
       artifacts:
         baseDirectory: .next
