@@ -1,15 +1,15 @@
 {
   "dev": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-web-dev-e4fb1-authRole",
-      "UnauthRoleArn": "arn:aws:iam::533267073907:role/amplify-web-dev-e4fb1-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::533267073907:role/amplify-web-dev-e4fb1-authRole",
+      "AuthRoleName": "amplify-boossti-dev-6cd0c-authRole",
+      "UnauthRoleArn": "arn:aws:iam::533267073907:role/amplify-boossti-dev-6cd0c-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::533267073907:role/amplify-boossti-dev-6cd0c-authRole",
       "Region": "us-west-1",
-      "DeploymentBucketName": "amplify-web-dev-e4fb1-deployment",
-      "UnauthRoleName": "amplify-web-dev-e4fb1-unauthRole",
-      "StackName": "amplify-web-dev-e4fb1",
-      "StackId": "arn:aws:cloudformation:us-west-1:533267073907:stack/amplify-web-dev-e4fb1/c2badf00-c92e-11ef-8590-0684cdc49181",
-      "AmplifyAppId": "d3fby5xoq7bi2e"
+      "DeploymentBucketName": "amplify-boossti-dev-6cd0c-deployment",
+      "UnauthRoleName": "amplify-boossti-dev-6cd0c-unauthRole",
+      "StackName": "amplify-boossti-dev-6cd0c",
+      "StackId": "arn:aws:cloudformation:us-west-1:533267073907:stack/amplify-boossti-dev-6cd0c/a368b780-ce4c-11ef-9820-021a8fe05509",
+      "AmplifyAppId": "d31ang0hp2efci"
     },
     "categories": {
       "hosting": {
@@ -17,6 +17,12 @@
           "appId": "d3fby5xoq7bi2e",
           "type": "manual"
         }
+      },
+      "auth": {
+        "boossti": {}
+      },
+      "storage": {
+        "boosstistorage": {}
       }
     }
   }
