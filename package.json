@@ -26,6 +26,7 @@
     "web:storybook": "yarn workspace @frontend/web run storybook",
     "web:storybook:build": "yarn workspace @frontend/web run build-storybook",
     "shared:test": "yarn workspace @frontend/shared test",
+    "build": "yarn workspace @frontend/web run build",
     "lint": "eslint --quiet --fix ./packages",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json}\"",
     "postinstall": "jetify",
